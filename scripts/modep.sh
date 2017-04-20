@@ -599,11 +599,11 @@ create_dirs() {
 	fi
 	if [ ! -d "$LV2_DIR" ]; then
 		sudo mkdir -p $LV2_DIR/
-		sudo ln -s $LV2_DIR /root/.lv2
+#		sudo ln -s $LV2_DIR /root/.lv2
 	fi
 	if [ ! -d "$PEDALBOARDS_DIR" ]; then
 		sudo mkdir -p $PEDALBOARDS_DIR/
-		sudo ln -s $PEDALBOARDS_DIR /root/.pedalboards
+#		sudo ln -s $PEDALBOARDS_DIR /root/.pedalboards
 	fi
 	if [ ! -d "$LV2_SRC_DIR" ]; then
 		mkdir -p $LV2_SRC_DIR/
@@ -662,8 +662,8 @@ get_manual_setup_menu() {
 			"1" "Install Pisound HAT drivers" \
 			"2" "Install Jack server" \
 			"3" "Install LV2 libraries" \
-			"4" "Install MOD-HOST" \
-			"5" "Install MOD-UI webserver" \
+			"4" "Install mod-host" \
+			"5" "Install mod-ui webserver" \
 			"6" "Install phantomjs binaries" \
 			"7" "Install libraries for WiFi AP" \
 			"8" "Install libraries for WiFi-MIDI" \
@@ -696,7 +696,7 @@ get_disable_menu() {
 		DISABLE_OPTION=$(whiptail --title "MOD Emulator for Pisound" --menu MODEP $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT --cancel-button "Go Back" --ok-button Select --fullbuttons \
 			"1" "Disable all MODEP services" \
 			"2" "Disable jack.service" \
-			"3" "Disable mod-hos.service" \
+			"3" "Disable mod-host.service" \
 			"4" "Disable mod-monitor.service" \
 			"5" "Disable mod-ui.service" \
 			"6" "Disable pisound-hotspot.service" \
@@ -720,7 +720,7 @@ get_enable_menu() {
 		ENABLE_OPTION=$(whiptail --title "MOD Emulator for Pisound" --menu MODEP $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT --cancel-button "Go Back" --ok-button Select --fullbuttons \
 			"1" "Enable all MODEP services" \
 			"2" "Enable jack.service" \
-			"3" "Enable mod-hos.service" \
+			"3" "Enable mod-host.service" \
 			"4" "Enable mod-monitor.service" \
 			"5" "Enable mod-ui.service" \
 			"6" "Enable pisound-hotspot.service" \
