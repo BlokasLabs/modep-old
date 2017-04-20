@@ -1,0 +1,16 @@
+[Unit]
+Description=MOD-HOST
+After=jack.service
+Requires=jack.service
+
+[Service]
+Type=forking
+Environment=HOME=/root
+WorkingDirectory=/root
+ExecStart=/usr/local/bin/mod-host
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+

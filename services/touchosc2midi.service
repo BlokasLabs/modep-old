@@ -1,0 +1,10 @@
+[Unit]
+Description=touchosc2midi
+After=pisound-hotspot.service
+Requires=pisound-hotspot.service
+
+[Service]
+ExecStart=/usr/local/bin/touchosc2midi --ip=172.24.1.1
+
+[Install]
+WantedBy=multi-user.target

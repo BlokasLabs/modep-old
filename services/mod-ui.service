@@ -1,0 +1,24 @@
+[Unit]
+Description=MOD-UI
+After=mod-monitor.service
+Requires=mod-monitor.service
+
+[Service]
+Environment=HOME=/root
+#Environment=LV2_PLUGIN_DIR=/usr/local/modep/.lv2/
+#Environment=LV2_PEDALBOARDS_DIR=/usr/local/modep/.pedalboards/
+Environment=MOD_SCREENSHOT_JS=/usr/local/modep/mod-ui/screenshot.js
+Environment=MOD_PHANTOM_BINARY=/usr/local/bin/phantomjs
+Environment=MOD_DEV_ENVIRONMENT=0
+Environment=MOD_DEVICE_WEBSERVER_PORT=80
+Environment=MOD_LOG=1
+Environment=MOD_APP=0
+Environment=MOD_LIVE_ISO=0
+Environment=MOD_SYSTEM_OUTPUT=1
+WorkingDirectory=/usr/local/modep/mod-ui
+ExecStart=/usr/bin/python3 /usr/local/modep/mod-ui/server.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

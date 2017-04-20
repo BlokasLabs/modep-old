@@ -1,0 +1,11 @@
+[Unit]
+Description=MOD-MONITOR
+After=jack.service
+Requires=mod-host.service
+
+[Service]
+ExecStart=/usr/local/bin/jack_load mod-monitor --wait
+ExecStop=/usr/local/bin/jack_unload mod-monitor
+
+[Install]
+WantedBy=multi-user.target
