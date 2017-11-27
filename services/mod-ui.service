@@ -4,7 +4,10 @@ After=mod-monitor.service
 Requires=mod-monitor.service
 
 [Service]
-Environment=HOME=/usr/local/modep
+Environment=HOME=/root
+Environment=LV2_PATH=/usr/local/modep/.lv2
+Environment=LV2_PLUGIN_DIR=/usr/local/modep/.lv2
+Environment=LV2_PEDALBOARDS_DIR=/usr/local/modep/.pedalboards
 Environment=MOD_SCREENSHOT_JS=/usr/local/modep/mod-ui/screenshot.js
 Environment=MOD_PHANTOM_BINARY=/usr/local/bin/phantomjs
 Environment=MOD_DEV_ENVIRONMENT=0
