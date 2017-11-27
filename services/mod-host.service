@@ -6,6 +6,7 @@ Requires=jack.service
 [Service]
 Type=forking
 Environment=HOME=/root
+Environment=LV2_PATH=/usr/local/modep/.lv2
 WorkingDirectory=/root
 ExecStart=/usr/local/bin/mod-host
 Restart=always
