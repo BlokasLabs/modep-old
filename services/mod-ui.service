@@ -1,7 +1,7 @@
 [Unit]
 Description=MOD-UI
-After=mod-monitor.service
-Requires=mod-monitor.service
+After=mod-host.service
+Requires=mod-host.service
 
 [Service]
 Environment=HOME=/root
