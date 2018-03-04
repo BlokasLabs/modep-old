@@ -207,7 +207,7 @@ install_modui() {
 	echo "$FUNCNAME started"
 	echo
 	cd $MODEP_DIR
-	sudo apt-get install -y python3-pip libopenjp2-7
+	sudo apt-get install -y python3-pip libopenjp2-7 libtiff5
 	git clone --recursive https://github.com/BlokasLabs/mod-ui.git
 	cd mod-ui
 	sudo pip3 install -r requirements.txt
