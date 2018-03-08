@@ -1,3 +1,7 @@
+# Moving to https://github.com/BlokasLabs/modep-gen soon!
+
+Find the MODEP Beta image here: https://community.blokas.io/t/beta-modep-2018-01-22/399
+
 # MODEP - MOD Emulator for Pisound
 ![MODEP](./modep.png)
 MOD (Musician Operated Device) is a multi-effects pedal that pushes the limit of your guitar, bass, keyboard or any other instrument to craft the sounds you want and reproduce them instantly at home, studio or on a stage.
