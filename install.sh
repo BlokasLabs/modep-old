@@ -19,7 +19,9 @@
 HOME=/home/pi
 MODEP=/usr/local/modep
 
-sudo apt-get install -y git
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install git
 cd $HOME
 if [ ! -d "modep" ]; then
 	echo "Cloning modep repository..."
@@ -42,4 +44,5 @@ if ! grep -q 'alias modep="/usr/local/modep/modep.sh"' $HOME/.bashrc; then
 	source $HOME/.bashrc
 fi
 sudo systemctl daemon-reload
+sudo apt-get clean
 $MODEP/modep.sh
