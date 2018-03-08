@@ -82,7 +82,7 @@ install_hotspot() {
 		echo
 		read -n 1 -p "Press any key to continue.."
 	fi
-}	
+}
 
 install_touchosc() {
 	echo
@@ -248,7 +248,7 @@ install_plugins() {
 	echo
 	echo "installing MOD Distortion suite.."
 	sudo chmod +x $MODEP_DIR/scripts/plugins/mod-distortion.sh
-	$MODEP_DIR/scripts/plugins/mod-distortion.sh	
+	$MODEP_DIR/scripts/plugins/mod-distortion.sh
 	echo
 	echo "installing MOD Utilities suite.."
 	sudo chmod +x $MODEP_DIR/scripts/plugins/mod-utilities.sh
@@ -260,7 +260,7 @@ install_plugins() {
 	echo
 	echo "installing FluidPlug suite.."
 	sudo chmod +x $MODEP_DIR/scripts/plugins/fluid.sh
-	$MODEP_DIR/scripts/plugins/fluid.sh	
+	$MODEP_DIR/scripts/plugins/fluid.sh
 	echo "installing other plugins.."
 	sudo chmod +x $MODEP_DIR/scripts/plugins/random-plugins.sh
 	$MODEP_DIR/scripts/plugins/random-plugins.sh
@@ -321,7 +321,7 @@ install_all() {
 	install_pisound -s
 	check_pisound -s
 	install_jack -s
-	install_lilv -s 
+	install_lilv -s
 	install_hotspot -s
 	install_touchosc -s
 	install_modhost -s
@@ -497,7 +497,7 @@ disable_touchosc2midi_service() {
 	if [ -z "$1" ]; then
 		echo
 		read -n 1 -p "Press any key to continue.."
-	fi	
+	fi
 }
 
 disable_all_services() {
@@ -549,12 +549,12 @@ check_system_status() {
 	OSC2MIDI=`systemctl is-active touchosc2midi`
 
 	whiptail --msgbox --title "MOD Emulator for Pisound" --fullbuttons "\
-		jack.servise $JACK_STATUS
-		mod-host.servise $MODHOST_STATUS
-		mod-monitor.servise $MODMONITOR_STATUS
-		mod-ui.servise $MODUI_STATUS
-		pisound-btn.servise $PISOUNDBTN_STATUS 
-		pisound-hotspot.servise $HOTSPOT_STATUS 
+		jack.service $JACK_STATUS
+		mod-host.service $MODHOST_STATUS
+		mod-monitor.service $MODMONITOR_STATUS
+		mod-ui.service $MODUI_STATUS
+		pisound-btn.service $PISOUNDBTN_STATUS
+		pisound-hotspot.service $HOTSPOT_STATUS
 		touchosc2midi.service $OSC2MIDI \
 		" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT
 }
@@ -669,7 +669,7 @@ get_manual_setup_menu() {
 			"8" "Install libraries for WiFi-MIDI" \
 			"9" "Install LV2 plugins" \
 			"10" "Install Pisound Button scripts" 3>&2 2>&1 1>&3 )
-			
+
 		RET=$?
 		if [ $RET -eq 1 ]; then
 			return 0
@@ -686,7 +686,7 @@ get_manual_setup_menu() {
 				9) install_plugins ;;
 				10) install_pisoundbtn ;;
 				*) whiptail --msgbox "Unrecognized option" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT ;;
-			esac || whiptail --msgbox "Error running option $ADVANCED_OPTION" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT	
+			esac || whiptail --msgbox "Error running option $ADVANCED_OPTION" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT
 		fi
 	done
 }
@@ -700,7 +700,7 @@ get_disable_menu() {
 			"4" "Disable mod-monitor.service" \
 			"5" "Disable mod-ui.service" \
 			"6" "Disable pisound-hotspot.service" \
-			"7" "Disable touchosc2midi.service" 3>&2 2>&1 1>&3 )	
+			"7" "Disable touchosc2midi.service" 3>&2 2>&1 1>&3 )
 
 		case $DISABLE_OPTION in
 			1) disable_all_services; return;;
@@ -713,7 +713,7 @@ get_disable_menu() {
 			*) DISABLE_DONE=1 ;;
 		esac || whiptail --msgbox "Error running option $DISABLE_OPTION" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT
 	done
-}	
+}
 
 get_enable_menu() {
 	while (( !ENABLE_DONE )); do
@@ -725,11 +725,11 @@ get_enable_menu() {
 			"5" "Enable mod-ui.service" \
 			"6" "Enable pisound-hotspot.service" \
 			"7" "Enable touchosc2midi.service" 3>&2 2>&1 1>&3 )
-		
+
 		RET=$?
 		if [ $RET -eq 1 ]; then
 			return 0
-		elif [ $RET -eq 0 ]; then	
+		elif [ $RET -eq 0 ]; then
 
 			case $ENABLE_OPTION in
 				1) enable_all_services; return;;
@@ -756,7 +756,7 @@ get_tools_menu() {
 			"6" "Change password for user pi" \
 			"7" "Clear build files" \
 			"8" "Restore 'factory' data" 3>&2 2>&1 1>&3 )
-			
+
 		RET=$?
 		if [ $RET -eq 1 ]; then
 			return 0
@@ -771,17 +771,17 @@ get_tools_menu() {
 				7) clear_src ;;
 				8) restore_modep_data ;;
 				*) whiptail --msgbox "Unrecognized option" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT ;;
-			esac || whiptail --msgbox "Error running option $ADVANCED_OPTION" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT	
+			esac || whiptail --msgbox "Error running option $ADVANCED_OPTION" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT
 		fi
 	done
 }
 
 get_about_menu() {
   whiptail --msgbox --title "MOD Emulator for Pisound" --fullbuttons " \
-	This tool provides a straight-forward way of doing initial setup & config of the MOD Emulator for Pisound. 
-	
+	This tool provides a straight-forward way of doing initial setup & config of the MOD Emulator for Pisound.
+
 	Start with a fresh Raspbian OS image, as some of the steps may have difficulties if you have customised your system.
-	
+
 	If you like it - get the real thing at https://www.moddevices.com \
 	" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT
 }
@@ -789,7 +789,7 @@ get_about_menu() {
 get_pisound_menu() {
   whiptail --msgbox --title "MOD Emulator for Pisound" --fullbuttons " \
 	No Pisound HAT detected. Have you installed the drivers?
-	
+
 	More info at https://www.blokas.io \
 	" $WT_HEIGHT $WT_WIDTH $WT_MENU_HEIGHT
 }
@@ -809,7 +809,7 @@ if [ -z "$1" ]; then
 			"2" "Manual Setup" \
 			"3" "Tools" \
 			"4" "About" 3>&2 2>&1 1>&3 )
-		
+
 		RET=$?
 		if [ $RET -eq 1 ]; then
 			ALL_DONE=1
