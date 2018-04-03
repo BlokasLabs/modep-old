@@ -308,7 +308,7 @@ install_phantomjs() {
 
 install_all() {
 	if [ -z "$1" ]; then
-		if (whiptail --title "MOD Emulator for Pisound" --yesno "Ar you ready? It can take more than 40 minutes." $WT_HEIGHT $WT_WIDTH --fullbuttons); then
+		if (whiptail --title "MOD Emulator for Pisound" --yesno "Are you ready? It can take more than 40 minutes." $WT_HEIGHT $WT_WIDTH --fullbuttons); then
 	    	:
 		else
 			return 0
@@ -612,7 +612,7 @@ create_dirs() {
 
 clear_src() {
 	if [ -z "$1" ]; then
-		if (whiptail --title "MOD Emulator for Pisound" --yesno "Ar you sure?" $WT_HEIGHT $WT_WIDTH --fullbuttons); then
+		if (whiptail --title "MOD Emulator for Pisound" --yesno "Are you sure?" $WT_HEIGHT $WT_WIDTH --fullbuttons); then
 	    		sudo rm -rf $MODEP_SRC_DIR/*
 		fi
 	else
